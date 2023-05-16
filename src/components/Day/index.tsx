@@ -1,19 +1,12 @@
 import { FC } from "react";
 
-import "./day.scss";
-import classNames from "classnames";
 import moment from "moment";
+import classNames from "classnames";
 
-interface DayProps {
-  filled?: boolean;
-  outlined?: boolean;
-  disabled?: boolean;
-  highlighted?: boolean;
-  isCurrentMonth?: boolean;
-  onClick?: () => void;
-  onHover?: () => void;
-  value: Date;
-}
+import { DateFormat } from "types/general.types";
+import { DayProps } from "types/day.types";
+
+import "./day.scss";
 
 const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentMonth, onClick, onHover, value }) => {
   return (
@@ -29,7 +22,7 @@ const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentM
       <button
         className="day-button"
         disabled={disabled || !isCurrentMonth}
-        data-testid={moment(value).format("YYYY-MM-DD")}
+        data-testid={moment(value).format(DateFormat.ISO8601)}
       >
         <span
           className={classNames("day-text", {
