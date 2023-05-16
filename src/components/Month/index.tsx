@@ -1,29 +1,18 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import moment from "moment";
 import _ from "lodash";
 
-import Day from "../Day";
+import Day from "components/Day";
+
 import { getDaysInMonth } from "utils";
+
+import { DATE, DateFormat } from "types/general.types";
+import { MonthProps } from "types/month.types";
 
 import "./month.scss";
 
 const WEEK_DAYS: string[] = ["Mo", "Tu", "We", "Th", "Fr", "Sat", "Su"];
-
-interface MonthProps {
-  value: Date;
-  date: Date;
-  minDate: Date;
-  maxDate: Date;
-  setValue: (date: Date) => void;
-  helpers: {
-    isHover: (day: Date) => boolean;
-  };
-  handlers: {
-    onDayClick: (day: Date) => void;
-    onDayHover: (day: Date) => void;
-  };
-}
 
 const Month: FC<MonthProps> = ({ helpers, handlers, value, date, setValue, minDate, maxDate }) => {
   return (
@@ -40,16 +29,16 @@ const Month: FC<MonthProps> = ({ helpers, handlers, value, date, setValue, minDa
         {_.chunk(getDaysInMonth(date), 7).map((week, index) => (
           <div key={index} className="month-week">
             {week.map((day) => {
-              const isSelected = moment(date).isSame(day, "day");
+              const isSelected = moment(date).isSame(day, DATE.DAY);
               const highlighted = helpers.isHover(day);
 
               return (
                 <Day
-                  key={moment(day).format("YYYY-MM-DD")}
+                  key={moment(day).format(DateFormat.ISO8601)}
                   filled={isSelected}
-                  outlined={!highlighted && moment().isSame(day, "day")}
+                  outlined={!highlighted && moment().isSame(day, DATE.DAY)}
                   highlighted={highlighted}
-                  isCurrentMonth={moment(day).isSame(date, "month")}
+                  isCurrentMonth={moment(day).isSame(date, DATE.MONTH)}
                   disabled={!moment(day).isBetween(minDate, maxDate)}
                   onClick={() => handlers.onDayClick(day)}
                   onHover={() => handlers.onDayHover(day)}
