@@ -1,0 +1,35 @@
+@import "common.scss";
+
+.date-picker-month-root {
+  width: 300px;
+  height: 350px;
+
+  .month-week-days-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .month-week-day {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #fff;
+    line-height: 1.25rem;
+  }
+
+  .month-days-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1.25px;
+  }
+
+  .month-week {
+    display: flex;
+    justify-content: center;
+  }
+}
