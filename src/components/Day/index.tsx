@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import "./day.scss";
 import classNames from "classnames";
+import moment from "moment";
 
 interface DayProps {
   filled?: boolean;
@@ -11,7 +12,7 @@ interface DayProps {
   isCurrentMonth?: boolean;
   onClick?: () => void;
   onHover?: () => void;
-  value: number | string;
+  value: Date;
 }
 
 const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentMonth, onClick, onHover, value }) => {
@@ -25,7 +26,11 @@ const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentM
       onClick={onClick}
       onMouseOver={onHover}
     >
-      <button className="day-button" disabled={disabled || !isCurrentMonth}>
+      <button
+        className="day-button"
+        disabled={disabled || !isCurrentMonth}
+        data-testid={moment(value).format("YYYY-MM-DD")}
+      >
         <span
           className={classNames("day-text", {
             contrast: !disabled && filled,
@@ -33,7 +38,7 @@ const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentM
             disabled: disabled,
           })}
         >
-          {value}
+          {moment(value).date()}
         </span>
       </button>
     </div>
