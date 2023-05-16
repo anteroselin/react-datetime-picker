@@ -1,0 +1,67 @@
+@import "common.scss";
+
+.date-time-day-container {
+  display: flex;
+  margin-bottom: 0.25rem;
+
+  .day-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .day-text {
+    line-height: 1.25rem;
+    font-size: 0.875rem;
+    color: #fff;
+  }
+
+  &.left-border-radius {
+    border-radius: 50% 0 0 50%;
+  }
+
+  &.right-border-radius {
+    border-radius: 0 50% 50% 0;
+  }
+
+  &.border-radius {
+    border-radius: 50%;
+  }
+
+  &.highlighted {
+    color: $dark100;
+    background-color: $dark65;
+    border-radius: 50%;
+  }
+
+  &.outlined {
+    border-radius: 50%;
+    outline: 1px solid $cfCyan;
+    background-color: transparent;
+
+    .day-text {
+      color: $light;
+    }
+  }
+
+  &.filled {
+    background-color: $cfCyan;
+    border-radius: 50%;
+  }
+
+  .contrast {
+    color: $dark100;
+  }
+
+  .disabled {
+    color: $dark50;
+    pointer-events: none;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+}

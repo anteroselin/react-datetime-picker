@@ -1,0 +1,133 @@
+$gray-200: #475467;
+$gray-900: #fcfcfd;
+$gray60: #65656b;
+$gray50: #88888d;
+$gray40: #717176;
+$primary700: #f4ebff;
+$primary50: #53389e;
+$light: #fff;
+
+$darkmode_4: #1b1b24;
+$darkmode_6: #202029;
+$darkmode_8: #25252d;
+$darkmode_10: #2a2a32;
+$darkmode_14: #33333b;
+
+$dark20: #d0d0d1;
+$dark30: #b8b8bb;
+$dark40: #a0a0a4;
+$dark50: #88888d;
+$dark60: #65656b;
+$dark65: #59595f;
+$dark70: #46464d;
+$dark85: #25252d;
+$dark80: #2a2a32;
+$dark90: #1d1d27;
+$dark95: #1b1b24;
+$dark100: #12121b;
+
+$cfCyan: #94d5db;
+$cfCyan_active: rgba($cfCyan, 0.6);
+$cfCyan_disabled: rgba($cfCyan, 0.3);
+
+$cardBkgd: #181822;
+$cardNestedBkgd: #262833;
+
+$cardOutline: #1e212b;
+$cardTitleColor: white;
+
+$base-color: $dark100;
+$header-bg-color: #282c34;
+$front-base-color: #202029;
+$secondary-font-color: #667085;
+$label-font-color: #ffffffbf;
+
+$title-color: #bbbbbd;
+
+$chart-line1: "#94D5DB";
+
+$background-color: radial-gradient(
+    38.81% 98.49% at 24.2% 11.26%,
+    rgba(140, 223, 217, 0.14) 0%,
+    rgba(140, 223, 217, 0) 100%
+  ),
+  radial-gradient(29.41% 56.29% at 92.6% 87.38%, rgba(251, 188, 5, 0.12) 9.47%, rgba(251, 188, 5, 0) 100%), #12121b;
+
+// cards
+$card-bg-color: $dark95;
+$card-border-radius: 8px;
+$card-bg: $darkmode_4;
+
+// table
+$table-bg: $cardBkgd;
+$table-header: $cardBkgd;
+$table-border-color: $gray60;
+$table-selected-row: $darkmode_8;
+$table-row-hover: $darkmode_8;
+$table-text-color: $gray-900;
+$table-header-color: $gray-900;
+$table-title-color: white;
+$table-scroll-color: $gray60;
+
+// charts
+$chart-font-color: $gray50;
+$portal-bg: $base-color;
+
+// buttons
+$button-bg-default: $darkmode_4;
+$button-bg-hover: $darkmode_8;
+$button-bg-active: $darkmode_14;
+$button-bg-disabled: $darkmode_8;
+$button-bg-focused: $darkmode_4;
+
+$button-fg-default: white;
+$button-fg-hover: white;
+$button-fg-active: white;
+$button-fg-disabled: $gray60;
+$button-fg-focused: white;
+
+$button-border-color: $gray60;
+
+// input
+$input-bg: $darkmode_4;
+$input-border-color: $gray60;
+
+$semibold: 600;
+
+$font-color: rgb(249, 250, 251);
+
+$dashboard-item-font-color: #bebec1;
+$secondary-font-color: #88888d;
+
+$border-radius: 6px;
+
+$border-color: $gray-200;
+
+$nav-item-inactive: $dark40;
+$nav-item-active: white;
+
+$ok-color: #039874;
+
+$error-color: #d6424b;
+$warning-color: #fbbc05;
+
+$neutral-color: $dark50;
+
+:export {
+  dark20: $dark20;
+  dark30: $dark30;
+  dark40: $dark40;
+  dark50: $dark50;
+  dark60: $dark60;
+  dark65: $dark65;
+  dark70: $dark70;
+  dark85: $dark85;
+  dark80: $dark80;
+  dark90: $dark90;
+  dark95: $dark95;
+  dark100: $dark100;
+  cfCyan: $cfCyan;
+  cfYellow: $warning-color;
+  cfError: $error-color;
+  light: $light;
+}
