@@ -1,0 +1,36 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.header-text {
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.header-icon {
+  background: url(assets/arrow.svg) no-repeat center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &.next {
+    transform: rotate(180deg);
+  }
+}
+
+.header-icon:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+select {
+  padding: 0.25rem;
+  font-size: 1rem;
+}

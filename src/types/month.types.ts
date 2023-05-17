@@ -1,3 +1,5 @@
+import { NavigationAction } from "./general.types";
+
 export interface MonthProps {
   value: Date;
   date: Date;
@@ -10,5 +12,6 @@ export interface MonthProps {
   handlers: {
     onDayClick: (day: Date) => void;
     onDayHover: (day: Date) => void;
+    onMonthNavigate: (action: NavigationAction) => void;
   };
 }
