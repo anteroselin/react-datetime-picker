@@ -1,0 +1,77 @@
+@import "common.scss";
+
+.c-button {
+  background-color: $dark90;
+  color: $button-fg-default;
+  border-radius: 6px;
+  border: 1px solid $button-border-color;
+  font-weight: $semibold;
+  font-size: 14px;
+  font-family: "Open Sans";
+  padding: 0.625rem 0;
+  cursor: pointer;
+  width: fit-content;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+
+  .c-button-input {
+    margin: 0 0.25rem;
+  }
+
+  &.primary {
+    background-color: $primary;
+    color: $dark95;
+
+    &:hover {
+      filter: brightness(115%);
+    }
+
+    &.disabled {
+      background-color: $primary_disabled;
+      pointer-events: none;
+    }
+  }
+
+  &.secondary {
+    &:hover {
+      background-color: $button-bg-hover;
+      color: $button-fg-hover;
+    }
+
+    &:active {
+      background-color: $button-bg-active;
+      color: $button-fg-active;
+    }
+
+    &:focus {
+      background-color: $button-bg-focused;
+      color: $button-fg-focused;
+    }
+
+    &.is-disabled {
+      background-color: $dark50;
+      color: $dark65;
+      pointer-events: none;
+    }
+  }
+
+  &.borderless {
+    background-color: transparent;
+    color: $primary;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: left;
+    &:hover {
+      filter: brightness(115%);
+    }
+  }
+
+  .button-icon {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+}

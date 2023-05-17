@@ -39,7 +39,7 @@
 
   &.outlined {
     border-radius: 50%;
-    outline: 1px solid $cfCyan;
+    outline: 1px solid $primary;
     background-color: transparent;
 
     .day-text {
@@ -48,7 +48,7 @@
   }
 
   &.filled {
-    background-color: $cfCyan;
+    background-color: $primary;
     border-radius: 50%;
   }
 
