@@ -83,10 +83,10 @@ const CSelect = React.forwardRef<any, CSelectProps>(function CFSelect(
       styles={{
         multiValue: (baseStyles) => ({
           ...baseStyles,
-          backgroundColor: colors.cfCyan,
+          backgroundColor: colors.primary,
           padding: "3px",
           borderRadius: "24px",
-          border: `1px solid ${colors.cfCyan}`,
+          border: `1px solid ${colors.primary}`,
         }),
         multiValueLabel: (baseStyles) => ({
           ...baseStyles,
@@ -106,13 +106,13 @@ const CSelect = React.forwardRef<any, CSelectProps>(function CFSelect(
           ...baseStyles,
           minHeight: "40px",
           borderRadius: "6px",
-          border: `1px solid ${state.isFocused ? colors.cfCyan : colors.dark65}`,
+          border: `1px solid ${state.isFocused ? colors.primary : colors.dark65}`,
           color: colors.dark30,
           backgroundColor: colors.dark100,
-          boxShadow: state.isFocused ? `0px 0px 6px 0px rgba(${colors.cfCyan}, 0.25)` : "none",
+          boxShadow: state.isFocused ? `0px 0px 6px 0px rgba(${colors.primary}, 0.25)` : "none",
           "&:hover": {
-            border: `1px solid ${colors.cfCyan}`,
-            boxShadow: `0px 0px 6px 0px rgba(${colors.cfCyan}, 0.25)`,
+            border: `1px solid ${colors.primary}`,
+            boxShadow: `0px 0px 6px 0px rgba(${colors.primary}, 0.25)`,
           },
         }),
         singleValue: (baseStyles) => ({
