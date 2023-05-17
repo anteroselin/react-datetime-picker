@@ -4,10 +4,11 @@ import moment from "moment";
 import _ from "lodash";
 
 import Day from "components/Day";
+import Header from "components/Header";
 
 import { getDaysInMonth } from "utils";
 
-import { DATE, DateFormat } from "types/general.types";
+import { DATE, DateFormat, NavigationAction } from "types/general.types";
 import { MonthProps } from "types/month.types";
 
 import "./month.scss";
@@ -17,6 +18,14 @@ const WEEK_DAYS: string[] = ["Mo", "Tu", "We", "Th", "Fr", "Sat", "Su"];
 const Month: FC<MonthProps> = ({ helpers, handlers, value, date, setValue, minDate, maxDate }) => {
   return (
     <div className="date-picker-month-root">
+      <Header
+        date={value}
+        setDate={setValue}
+        nextDisabled={false}
+        prevDisabled={false}
+        onClickPrevious={() => handlers.onMonthNavigate(NavigationAction.Previous)}
+        onClickNext={() => handlers.onMonthNavigate(NavigationAction.Next)}
+      />
       <div className="month-week-days-container">
         {WEEK_DAYS.map((day) => (
           <span key={day} className="month-week-day">

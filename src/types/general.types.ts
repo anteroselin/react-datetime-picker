@@ -8,3 +8,8 @@ export enum DATE {
   MONTH = "month",
   YEAR = "year",
 }
+
+export enum NavigationAction {
+  Previous = -1,
+  Next = 1,
+}
