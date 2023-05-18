@@ -1,0 +1,78 @@
+@import "common.scss";
+
+.date-time-picker {
+  text-align: left;
+  color: $secondary-font-color;
+
+  .date-time-input {
+    height: 40px;
+    border-radius: $border-radius;
+    border: 1px solid $input-border-color;
+    color: white;
+    text-align: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background: $dark100 url(assets/calendar.png) right no-repeat;
+    background-origin: content-box;
+    min-width: 250px;
+
+    &:focus {
+      border: 1px solid $primary;
+      box-shadow: 0px 0px 6px 0px rgba($primary, 0.25);
+      outline: none;
+    }
+  }
+
+  & .use-bootstrap {
+    // here the styles to override the default ones from daterangepicker
+    color: black;
+
+    input {
+      height: 30px;
+    }
+  }
+
+  .menu-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: $dark90;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    z-index: 99;
+    width: 300px;
+  }
+
+  .menu-months-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menu-times-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .menu-timezone-picker-container {
+    align-self: end;
+    width: 100%;
+  }
+
+  .menu-time-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    width: 120px;
+  }
+
+  .menu-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+}
