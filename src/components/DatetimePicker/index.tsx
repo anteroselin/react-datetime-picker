@@ -15,7 +15,7 @@ import { TimePickerRef } from "types/timepicker.types";
 import { DATE, NavigationAction } from "types/general.types";
 import { DatetimePickerProps, DatetimePickerRef } from "types/datetimepicker.types";
 
-import "./date-time-picker.scss";
+import "./datetime-picker.scss";
 
 const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(function DatetimePicker(
   { initialDate, minDate, maxDate, showTime = false, format, onChange },
