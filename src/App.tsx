@@ -4,8 +4,10 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
-      <DatetimePicker onChange={() => true} />
-      <DatetimePicker showTime={true} onChange={() => true} />
+      <div className="container">
+        <DatetimePicker onChange={() => true} />
+        <DatetimePicker showTime={true} onChange={() => true} />
+      </div>
     </div>
   );
 }

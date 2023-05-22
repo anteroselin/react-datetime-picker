@@ -1,11 +1,14 @@
 @import "common.scss";
 
 .App {
+  background-color: $dark100;
+  text-align: center;
+}
+
+.container {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
-  padding-top: 300px;
-  background-color: $dark100;
-  text-align: center;
 }
