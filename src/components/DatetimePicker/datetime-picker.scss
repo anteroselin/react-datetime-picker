@@ -15,7 +15,7 @@
     box-sizing: border-box;
     background: $dark100 url(assets/calendar.png) right no-repeat;
     background-origin: content-box;
-    min-width: 250px;
+    min-width: 350px;
 
     &:focus {
       border: 1px solid $primary;
