@@ -35,7 +35,7 @@ const Month: FC<MonthProps> = ({ helpers, handlers, value, date, setValue, minDa
       </div>
 
       <div className="month-days-container">
-        {_.chunk(getDaysInMonth(date), 7).map((week, index) => (
+        {_.chunk(getDaysInMonth(value), 7).map((week, index) => (
           <div key={index} className="month-week">
             {week.map((day) => {
               const isSelected = moment(date).isSame(day, DATE.DAY);
@@ -47,7 +47,7 @@ const Month: FC<MonthProps> = ({ helpers, handlers, value, date, setValue, minDa
                   filled={isSelected}
                   outlined={!highlighted && moment().isSame(day, DATE.DAY)}
                   highlighted={highlighted}
-                  isCurrentMonth={moment(day).isSame(date, DATE.MONTH)}
+                  isCurrentMonth={moment(day).isSame(value, DATE.MONTH)}
                   disabled={!moment(day).isBetween(minDate, maxDate)}
                   onClick={() => handlers.onDayClick(day)}
                   onHover={() => handlers.onDayHover(day)}

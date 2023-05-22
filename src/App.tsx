@@ -1,7 +1,5 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import DatetimePicker from "components/DatetimePicker";
+import "./App.css";
 
 function App() {
   return (
