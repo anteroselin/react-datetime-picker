@@ -27,7 +27,7 @@ const Day: FC<DayProps> = ({ filled, outlined, disabled, highlighted, isCurrentM
         <span
           className={classNames("day-text", {
             contrast: !disabled && filled,
-            invisible: isCurrentMonth,
+            invisible: !isCurrentMonth,
             disabled: disabled,
           })}
         >
