@@ -3,8 +3,6 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { ButtonType } from "types/button.types";
 import CButton from ".";
 
-// Add the required icons to the FontAwesome library
-
 describe("CButton", () => {
   test("renders button correctly", () => {
     const mockOnClick = jest.fn();
