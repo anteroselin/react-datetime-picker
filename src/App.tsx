@@ -7,6 +7,7 @@ function App() {
       <div className="container">
         <DatetimePicker onChange={() => true} />
         <DatetimePicker showTime={true} onChange={() => true} />
+        <DatetimePicker showTime={true} showTimezone={true} onChange={() => true} />
       </div>
     </div>
   );

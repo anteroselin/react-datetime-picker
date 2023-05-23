@@ -7,6 +7,7 @@ export interface DatetimePickerProps {
   minDate?: Date | string;
   maxDate?: Date | string;
   showTime?: boolean;
+  showTimezone?: boolean;
   format?: string;
   onChange: (date: Date) => void;
 }

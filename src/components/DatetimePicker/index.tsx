@@ -18,7 +18,7 @@ import { DatetimePickerProps, DatetimePickerRef } from "types/datetimepicker.typ
 import "./datetime-picker.scss";
 
 const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(function DatetimePicker(
-  { initialDate, minDate, maxDate, showTime = false, format, onChange },
+  { initialDate, minDate, maxDate, showTime = false, showTimezone = false, format, onChange },
   ref
 ) {
   const today = new Date();
@@ -38,14 +38,14 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     if (initialDate) {
       return displayDate(initialDate, moment(initialDate).format("HH:mm"), true, true, timezone, format);
     }
-    return "";
+    return displayDate(today, moment(today).format("HH:mm"), true, true, timezone, format);
   });
 
   const [displayValue, setDisplayValue] = useState<string>(() => {
     if (initialDate) {
       return displayDate(initialDate, moment(initialDate).format("HH:mm"), true, true, timezone);
     }
-    return "";
+    return displayDate(today, moment(today).format("HH:mm"), true, true, timezone);
   });
 
   const timeRef = useRef<TimePickerRef | null>(null);
@@ -80,7 +80,7 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     (day: Date) => {
       setSelectedDate(day);
     },
-    [onChange]
+    [setSelectedDate]
   );
 
   const onDayHover = useCallback(
@@ -136,11 +136,7 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     [onDayClick, onDayHover, onMonthNavigate]
   );
 
-  useEffect(() => {
-    adjustMenuPosition();
-  }, [menuPosition]);
-
-  const adjustMenuPosition = () => {
+  const adjustMenuPosition = useCallback(() => {
     const menuRect = menuRef.current?.getBoundingClientRect();
 
     if (!menuRect || !inputRect) {
@@ -166,8 +162,11 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     }
 
     setAdjustedPosition({ ...newMenuPosition, opacity: 1 });
-  };
+  }, [inputRect, menuPosition]);
 
+  useEffect(() => {
+    adjustMenuPosition();
+  }, [adjustMenuPosition]);
   return (
     <div className="date-time-picker">
       <input
@@ -211,9 +210,11 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
                   />
                 </div>
               </div>
-              <div className="menu-timezone-picker-container">
-                <TimezonePicker onSelect={handleChangeTimezone} selectedTimezone={timezone} />
-              </div>
+              {showTimezone && (
+                <div className="menu-timezone-picker-container">
+                  <TimezonePicker onSelect={handleChangeTimezone} selectedTimezone={timezone} />
+                </div>
+              )}
             </div>
           )}
 
