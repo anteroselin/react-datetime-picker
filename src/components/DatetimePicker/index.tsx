@@ -38,14 +38,14 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     if (initialDate) {
       return displayDate(initialDate, moment(initialDate).format("HH:mm"), true, true, timezone, format);
     }
-    return "";
+    return displayDate(today, moment(today).format("HH:mm"), true, true, timezone, format);
   });
 
   const [displayValue, setDisplayValue] = useState<string>(() => {
     if (initialDate) {
       return displayDate(initialDate, moment(initialDate).format("HH:mm"), true, true, timezone);
     }
-    return "";
+    return displayDate(today, moment(today).format("HH:mm"), true, true, timezone);
   });
 
   const timeRef = useRef<TimePickerRef | null>(null);
