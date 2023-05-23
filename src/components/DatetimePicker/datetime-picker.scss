@@ -3,7 +3,7 @@
 .date-time-picker {
   text-align: left;
   color: $secondary-font-color;
-  padding: 300px;
+  padding: 300px 0;
 
   .date-time-input {
     height: 40px;
@@ -54,6 +54,8 @@
   .menu-times-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
   }
 
