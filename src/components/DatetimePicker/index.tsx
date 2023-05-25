@@ -149,16 +149,16 @@ const DatetimePicker = forwardRef<DatetimePickerRef, DatetimePickerProps>(functi
     const newMenuPosition = { ...menuPosition };
     // Check if the menu overflows to the right
     if (inputRect.left + menuRect.width + buffer > innerWidth) {
-      newMenuPosition.left = inputRect.left + inputRect.width - menuRect.width;
+      newMenuPosition.left = inputRect.width - menuRect.width;
     } else {
-      newMenuPosition.left = inputRect.left;
+      newMenuPosition.left = 0;
     }
 
     // Check if the menu overflows to the bottom
     if (inputRect.top + inputRect.height + menuRect.height + buffer > innerHeight) {
-      newMenuPosition.top = inputRect.top - menuRect.height - buffer;
+      newMenuPosition.top = -menuRect.height - buffer;
     } else {
-      newMenuPosition.top = inputRect.top + inputRect.height + buffer;
+      newMenuPosition.top = inputRect.height + buffer;
     }
 
     setAdjustedPosition({ ...newMenuPosition, opacity: 1 });
