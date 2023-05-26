@@ -24,7 +24,7 @@ describe("Header", () => {
     expect(screen.getByText(`${moment(date).format("MMMM")} ${date.getFullYear()}`)).toBeInTheDocument();
   });
 
-  it("calls onClickNext when next button is clicked", () => {
+  test("calls onClickNext when next button is clicked", () => {
     render(
       <Header
         date={date}
@@ -41,7 +41,7 @@ describe("Header", () => {
     expect(onClickNext).toHaveBeenCalled();
   });
 
-  it("calls onClickPrevious when previous button is clicked", () => {
+  test("calls onClickPrevious when previous button is clicked", () => {
     render(
       <Header
         date={date}
@@ -58,7 +58,7 @@ describe("Header", () => {
     expect(onClickPrevious).toHaveBeenCalled();
   });
 
-  it("disables the next button when nextDisabled is true", () => {
+  test("disables the next button when nextDisabled is true", () => {
     render(
       <Header
         date={date}
@@ -73,7 +73,7 @@ describe("Header", () => {
     expect(screen.getByTestId("test-next-month")).toBeDisabled();
   });
 
-  it("disables the previous button when prevDisabled is true", () => {
+  test("disables the previous button when prevDisabled is true", () => {
     render(
       <Header
         date={date}
