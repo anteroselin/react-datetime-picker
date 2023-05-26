@@ -15,7 +15,7 @@ describe("DateTimeRangePicker", () => {
     jest.clearAllMocks();
   });
 
-  it("returns the correct date when select date", () => {
+  test("returns the correct date when select date", () => {
     render(<DatetimePicker ref={ref} onChange={mockOnChange} />);
     fireEvent.click(screen.getByTestId("datetime-picker"));
     // Open the picker
@@ -30,7 +30,7 @@ describe("DateTimeRangePicker", () => {
     expect(ref.current?.value()).toEqual(moment(testDate).format("YYYY-MM-DD"));
   });
 
-  it("check selected timezone", async () => {
+  test("check selected timezone", async () => {
     render(
       <DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} showTimezone={true} format={TimeRFC3999} />
     );
@@ -60,7 +60,7 @@ describe("DateTimeRangePicker", () => {
     expect(ref.current?.value()).toEqual(moment.tz(`${testIdDate} ${testTime}`, "Africa/Abidjan").format(TimeRFC3999));
   });
 
-  it("check default timezone matches browsers one", async () => {
+  test("check default timezone matches browsers one", async () => {
     render(<DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} format={TimeRFC3999} />);
     // Open the picker
     fireEvent.click(screen.getByTestId("datetime-picker"));
