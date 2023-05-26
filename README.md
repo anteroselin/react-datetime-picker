@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# react-datertime-picker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A date time picker component using react
 
-## Available Scripts
+## Live Demo: https://react-datetime-picker.vercel.app/
 
-In the project directory, you can run:
+## Usage
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+````
 
-### `npm test`
+## Basic Example
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```tsx
 
-### `npm run build`
+class App extends React.Component<Props, State> {
+  state = {
+    date: {},
+  };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  render() {
+    return <DatetimePicker open={this.state.open} onChange={(value) => this.setState({ date: value })} />;
+  }
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default App;
+````
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Basic example using hooks
 
-### `npm run eject`
+```tsx
+const App: React.FunctionComponent<Props> = (props) => {
+  const [date, setDate] = React.useState<Date>({});
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  return <DatetimePicker open={open} onChange={(value) => setDateRange(value)} />;
+};
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Props
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Name | Type | Required | Default value | Description
+:--- | :--- | :--- | :--- | :---
+`initialDate` | `Date` | | `today` | initially selected date
+`minDate` | `Date, string` | | 10 years ago | min date allowed in picker
+`maxDate` | `Date, string` | | 10 years from now | max date allowed in picker
+`showTime` | `Boolean` | | `false` | show time picker
+`showTimezone` | `Boolean` | | `false` | show tiemzone picker when select time
+`format` | `string` | | `YYYY-MM-DD` | set date time format
+`onChange` | `(Date) => void` | _required_ | - | handler function for providing selected date
