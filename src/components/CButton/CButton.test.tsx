@@ -4,18 +4,21 @@ import { ButtonType } from "types/button.types";
 import CButton from ".";
 
 describe("CButton", () => {
+  const mockOnClick = jest.fn();
+
+  const mockComponent = (
+    <CButton
+      onClick={mockOnClick}
+      value="Test Button"
+      iconName={faCoffee}
+      testid="test-button"
+      variant={ButtonType.Secondary}
+      disabled={false}
+    />
+  );
+
   test("renders button correctly", () => {
-    const mockOnClick = jest.fn();
-    render(
-      <CButton
-        onClick={mockOnClick}
-        value="Test Button"
-        iconName={faCoffee}
-        testid="test-button"
-        variant={ButtonType.Secondary}
-        disabled={false}
-      />
-    );
+    render(mockComponent);
 
     const button = screen.getByTestId("test-button");
     expect(button).toBeInTheDocument();
@@ -26,17 +29,7 @@ describe("CButton", () => {
   });
 
   test("button click triggers onClick function", () => {
-    const mockOnClick = jest.fn();
-    render(
-      <CButton
-        onClick={mockOnClick}
-        value="Test Button"
-        iconName={faCoffee}
-        testid="test-button"
-        variant={ButtonType.Secondary}
-        disabled={false}
-      />
-    );
+    render(mockComponent);
 
     const button = screen.getByTestId("test-button");
     fireEvent.click(button);
@@ -45,7 +38,6 @@ describe("CButton", () => {
   });
 
   test("button is disabled", () => {
-    const mockOnClick = jest.fn();
     render(
       <CButton
         onClick={mockOnClick}

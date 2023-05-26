@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import moment from "moment";
 import Month from ".";
-import { NavigationAction } from "types/general.types";
 import { getDaysInMonth } from "utils";
+import { NavigationAction } from "types/general.types";
 import { DateFormat } from "types/general.types";
 import { DATE } from "types/general.types";
 
