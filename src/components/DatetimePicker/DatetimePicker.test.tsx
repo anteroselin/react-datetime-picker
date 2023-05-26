@@ -46,7 +46,7 @@ describe("DateTimeRangePicker", () => {
     const input = selectWrapper.firstChild as HTMLElement;
     fireEvent.keyDown(input, { keyCode: 40 });
 
-    const option = await screen.findByText("Africa/Abidjan +00:00");
+    const option = await screen.findByText("UTC +00:00");
     fireEvent.click(option);
 
     const testIdDate = `${moment(today).format("YYYY")}-${moment(today).format("MM")}-05`;
@@ -62,9 +62,7 @@ describe("DateTimeRangePicker", () => {
     // Click the apply button
     fireEvent.click(screen.getByText("Apply"));
 
-    expect(ref.current?.value()).toEqual(
-      moment.tz(`${testIdDate} ${testTime}`, "Africa/Abidjan").format(DateFormat.RFC3999)
-    );
+    expect(ref.current?.value()).toEqual(moment.tz(`${testIdDate} ${testTime}`, "UTC").format(DateFormat.RFC3999));
   });
 
   test("check default timezone matches browsers one", async () => {
