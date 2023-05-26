@@ -4,7 +4,7 @@ import moment from "moment-timezone";
 import DatetimePicker from ".";
 import { DatetimePickerRef } from "types/datetimepicker.types";
 
-describe.skip("DateTimeRangePicker", () => {
+describe("DateTimeRangePicker", () => {
   const ref = React.createRef<DatetimePickerRef>();
   const mockOnChange = jest.fn();
   const today = new Date();
@@ -31,7 +31,9 @@ describe.skip("DateTimeRangePicker", () => {
   });
 
   it("check selected timezone", async () => {
-    render(<DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} format={TimeRFC3999} />);
+    render(
+      <DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} showTimezone={true} format={TimeRFC3999} />
+    );
     // Open the picker
     fireEvent.click(screen.getByTestId("datetime-picker"));
 
