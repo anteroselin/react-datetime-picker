@@ -3,13 +3,12 @@ import { screen, render, fireEvent } from "@testing-library/react";
 import moment from "moment-timezone";
 import DatetimePicker from ".";
 import { DatetimePickerRef } from "types/datetimepicker.types";
+import { DateFormat } from "types/general.types";
 
 describe("DateTimeRangePicker", () => {
   const ref = React.createRef<DatetimePickerRef>();
   const mockOnChange = jest.fn();
   const today = new Date();
-
-  const TimeRFC3999 = "YYYY-MM-DDTHH:mm:ss.SSSZ";
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -32,7 +31,13 @@ describe("DateTimeRangePicker", () => {
 
   test("check selected timezone", async () => {
     render(
-      <DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} showTimezone={true} format={TimeRFC3999} />
+      <DatetimePicker
+        ref={ref}
+        onChange={mockOnChange}
+        showTime={true}
+        showTimezone={true}
+        format={DateFormat.RFC3999}
+      />
     );
     // Open the picker
     fireEvent.click(screen.getByTestId("datetime-picker"));
@@ -57,11 +62,13 @@ describe("DateTimeRangePicker", () => {
     // Click the apply button
     fireEvent.click(screen.getByText("Apply"));
 
-    expect(ref.current?.value()).toEqual(moment.tz(`${testIdDate} ${testTime}`, "Africa/Abidjan").format(TimeRFC3999));
+    expect(ref.current?.value()).toEqual(
+      moment.tz(`${testIdDate} ${testTime}`, "Africa/Abidjan").format(DateFormat.RFC3999)
+    );
   });
 
   test("check default timezone matches browsers one", async () => {
-    render(<DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} format={TimeRFC3999} />);
+    render(<DatetimePicker ref={ref} onChange={mockOnChange} showTime={true} format={DateFormat.RFC3999} />);
     // Open the picker
     fireEvent.click(screen.getByTestId("datetime-picker"));
 
@@ -78,6 +85,8 @@ describe("DateTimeRangePicker", () => {
     // Click the apply button
     fireEvent.click(screen.getByText("Apply"));
 
-    expect(ref.current?.value()).toEqual(moment.tz(`${testIdDate} ${testTime}`, moment.tz.guess()).format(TimeRFC3999));
+    expect(ref.current?.value()).toEqual(
+      moment.tz(`${testIdDate} ${testTime}`, moment.tz.guess()).format(DateFormat.RFC3999)
+    );
   });
 });
